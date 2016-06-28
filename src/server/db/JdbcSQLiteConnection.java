@@ -61,7 +61,7 @@ public class JdbcSQLiteConnection {
 
         String sql = "INSERT OR IGNORE INTO candidatos\n"
                 + " (id, codigo_votacao, nome_candidato, partido, num_votos)\n"
-                + " VALUES (1, 213, 'Carroll Morgan', 'BRACKETS', 0);\n";
+                + " VALUES (1, 213, 'Betty Holberton', 'ENIAC', 0);\n";
         statement.execute(sql);
         sql = "INSERT OR IGNORE INTO candidatos\n"
                 + " (id, codigo_votacao, nome_candidato, partido, num_votos)\n"
@@ -69,8 +69,13 @@ public class JdbcSQLiteConnection {
         statement.execute(sql);
         sql = "INSERT OR IGNORE INTO candidatos\n"
                 + " (id, codigo_votacao, nome_candidato, partido, num_votos)\n"
-                + " VALUES (3, 654, 'Lorem Ipsum', 'LRP', 0);\n";
+                + " VALUES (3, 654, 'Hedy Lamarr', 'STAR', 0);\n";
         statement.execute(sql);
+        sql = "INSERT OR IGNORE INTO candidatos\n"
+                + " (id, codigo_votacao, nome_candidato, partido, num_votos)\n"
+                + " VALUES (4, 179, 'Carla Meninsky', 'ATARI', 0);\n";
+        statement.execute(sql);
+
 
         statement.close();
     }
