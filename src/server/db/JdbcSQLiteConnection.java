@@ -129,16 +129,16 @@ public class JdbcSQLiteConnection {
     public static Boolean updateCandidatos(List<Integer> listCodigoVotacao) throws SQLException {
         Connection conn = connect();
 
-        StringBuilder sql = new StringBuilder();
+        String sql = "";
+        int count = 0;
 
         for (Integer aListCodigoVotacao : listCodigoVotacao) {
-            sql.append("UPDATE candidatos\n" + "SET num_votos = num_votos + 1\n" + "WHERE codigo_votacao = ")
-                    .append(aListCodigoVotacao)
-                    .append(";\n");
+            sql = "UPDATE candidatos SET num_votos = num_votos + 1 WHERE codigo_votacao = "
+                   + aListCodigoVotacao + ";";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            count = preparedStatement.executeUpdate();
+            preparedStatement.close();
         }
-
-        PreparedStatement preparedStatement = conn.prepareStatement(sql.toString());
-        int count = preparedStatement.executeUpdate();
 
         return count > 0;
     }

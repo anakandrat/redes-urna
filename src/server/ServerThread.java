@@ -53,8 +53,9 @@ public class ServerThread extends Thread {
 
                         }
                     }catch(SQLException e){
-
+                        System.out.println("SQLException");
                     }
+                    System.out.println("Enviado");
 
 
                 //codigo para recebimento de fechamento da urna
@@ -62,7 +63,7 @@ public class ServerThread extends Thread {
                     
                     System.out.println("Recebendo votos...");
                     //Recebe os votos da urna finalizada
-                    votos = (List)in.readObject();
+                    votos = (List<Integer>)in.readObject();
                     System.out.println(votos);
                     System.out.println("Finalizando conexao...");
                     
@@ -78,10 +79,10 @@ public class ServerThread extends Thread {
                 System.out.println("Computando Votos...");
                 candidato.computarMultiplosVotos(votos);
                 //Exibe as parciais
-                System.out.println("Parciais:");
+                System.out.println("\nParciais:");
                 System.out.println(candidato.getParciais());
             }catch(SQLException se){
-
+                System.out.println("SQLException");                    
             }
 
         } catch (IOException e) {

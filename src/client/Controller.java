@@ -41,16 +41,16 @@ public class Controller {
             	//envia o código de requisição
             	out.writeObject(voto);
             } catch (IOException ex) {
-
+            	System.out.println("IOException");
             }
 
             try {
             	//Imprime a resposta no campo apropriado da urna
             	urna.getjTextArea1().setText((String)in.readObject());
             } catch (IOException ex) {
-
+            	System.out.println("IOException");
             } catch ( ClassNotFoundException e){
-
+            	System.out.println("ClassNotFoundException");
             }
         //Avisa que vai encerrar a votação da urna
         } else if (voto.equalsIgnoreCase("888")) {
@@ -61,7 +61,7 @@ public class Controller {
                 //Envia os votos
                 out.writeObject(votos);
             } catch (IOException ex) {
-
+            	System.out.println("IOException");
             }
             
             urna.jTextFieldVoto.setText("Votação encerrada");
