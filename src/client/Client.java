@@ -12,7 +12,7 @@ public class Client {
         String hostName = "cosmos.lasdpc.icmc.usp.br";
         int portNumber = 40104;
 
-        Socket socket = new Socket(hostname, portNumber);
+        Socket socket = new Socket(hostName, portNumber);
         
         ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
         ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
